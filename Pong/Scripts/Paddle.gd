@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var Speed = 200;
+export var Speed = 220;
 
 func _ready():
 	set_fixed_process(true)
@@ -20,6 +20,3 @@ func player_movement(delta):
 		direction.x += 1
 	
 	move(direction.normalized() * Speed * delta)
-	
-	# paddle rotation feels bad, would probably feel better if look_at position x units behind mouse_pos
-	look_at(get_global_mouse_pos())

@@ -56,11 +56,11 @@ __meta__ = {
 
 [node name="Paddle" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 303.363, 204.056 )
+transform/pos = Vector2( 142.359, 324.346 )
+Speed = 240
 
 [node name="Walls" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1020.56, 158.919 )
 
 [node name="North Wall" parent="Walls" instance=ExtResource( 6 )]
