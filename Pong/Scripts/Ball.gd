@@ -1,12 +1,17 @@
 extends KinematicBody2D
 
-export var Speed = 250
+export var Speed = 200
 
 var Direction = Vector2(1, 1).normalized()
 var Collisions = 0
 
 func _ready():
 	set_fixed_process(true)
+	
+func debug_print():
+	print("Direction: ", Direction.x, ", ", Direction.y)
+	print("get_pos: ", get_pos().x, ", ", get_pos().y)
+	print("get_collision_pos: ", get_collision_pos().x, ", ", get_collision_pos().y)
 
 func _fixed_process(delta):
 	if (is_colliding()):

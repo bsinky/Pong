@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://left_pallete.png" type="Texture" id=2]
 [ext_resource path="res://right_pallete.png" type="Texture" id=3]
 [ext_resource path="res://separator.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=7]
-[ext_resource path="res://bg.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/PlayerPaddle.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/AIPaddle.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=9]
+[ext_resource path="res://bg.png" type="Texture" id=10]
 
 [node name="game" type="Node"]
 
@@ -54,46 +56,52 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Paddle" parent="." instance=ExtResource( 5 )]
+[node name="1P_Paddle" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 142.359, 324.346 )
-Speed = 240
+script/script = ExtResource( 6 )
+
+[node name="2P_Paddle" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 882.463, 318.317 )
+script/script = ExtResource( 7 )
 
 [node name="Walls" type="Node2D" parent="."]
 
 transform/pos = Vector2( 1020.56, 158.919 )
 
-[node name="North Wall" parent="Walls" instance=ExtResource( 6 )]
+[node name="North Wall" parent="Walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -500, -160 )
 transform/rot = 90.0
 transform/scale = Vector2( 1, 4 )
 
-[node name="East Wall" parent="Walls" instance=ExtResource( 6 )]
+[node name="East Wall" parent="Walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 0, 150 )
 transform/scale = Vector2( 1, 2 )
 
-[node name="South Wall" parent="Walls" instance=ExtResource( 6 )]
+[node name="South Wall" parent="Walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -500, 440 )
 transform/rot = 90.0
 transform/scale = Vector2( 1, 4 )
 
-[node name="West Wall" parent="Walls" instance=ExtResource( 6 )]
+[node name="West Wall" parent="Walls" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1020, 150 )
 transform/scale = Vector2( 1, 2 )
 
-[node name="Ball" parent="." instance=ExtResource( 7 )]
+[node name="Ball" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 480.212, 159.164 )
+Speed = 240
 
 [node name="background" type="Sprite" parent="."]
 
 transform/pos = Vector2( 512, 300 )
 z/z = -1
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
